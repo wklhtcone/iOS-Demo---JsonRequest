@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Response: Codable {
+struct RevData: Codable {
     let results: MyResult
     let status: String
 }

@@ -19,25 +19,22 @@ class ViewController: UIViewController {
     func getData(from url: String){
         let session = URLSession.shared
         let task = session.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
-            guard let revData = data, error == nil else{
+            guard let data = data, error == nil else{
                 print("URL获取数据失败")
                 return
             }
 
             //获取到了数据
-            var res: Response?
+            print(response!)
+            var revData: RevData?
             do{
-                res = try JSONDecoder().decode(Response.self, from: revData)
+                revData = try JSONDecoder().decode(RevData.self, from: data)
             }
             catch{
                 print("Json转struct失败\(error)")
             }
-            
-            if let json = res {
-                print(json.results)
-                print(json.status)
-               
-            }
+            print(revData!.results)
+            print(revData!.status)
         })
         
         task.resume()
