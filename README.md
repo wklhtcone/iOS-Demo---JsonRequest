@@ -21,9 +21,7 @@
  "status":"OK"}
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2021020623351258.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
-
-
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20210207002229845.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
 - `response`和`data`：
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210206233609154.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
 ## 2. 获取Json并解析
@@ -61,9 +59,9 @@ struct MyResult: Codable {
 1. 对于基本请求可以使用`URLSession.shared`单例，简单的数据任务使用`dataTask`方法
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20210207000007482.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
 2. `dataTask(with: URL, completionHandler: (Data?, URLResponse?, Error?) -> Void)`方法
-- 获取数据成功时，数据保存在Data，Error为nil
-- 获取失败时，Error不为nil
-- 不论是否获取成功，URLResponse不为nil，是HTTP响应报文![在这里插入图片描述](https://img-blog.csdnimg.cn/20210207000649837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
+- 获取数据成功时，数据保存在`Data`，`Error`为nil
+- 获取失败时，`Error`不为nil
+- 不论是否获取成功，`URLResponse`不为nil，存着HTTP响应报文中的数据![在这里插入图片描述](https://img-blog.csdnimg.cn/20210207000649837.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM1MDg3NDI1,size_16,color_FFFFFF,t_70)
 3. 数据可能获取失败，因此用`guard ... else`处理
 
 ```swift
